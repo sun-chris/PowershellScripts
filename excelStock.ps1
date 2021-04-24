@@ -25,7 +25,6 @@ $sheet = $book.Sheets.Item(1)
 
 #Windows Roadblock #2, Excel has an arbitrary limit on the amount of cells that can be converted to a linked data type at once. To work around this, it must be done in 2 batches
 $kHalf = [math]::floor($k/2)
-#Convert stock tickers in column 1 to Stock Data objects
 $r1 = $sheet.range("A2:A${kHalf}")
 $r2 = $sheet.range("A${kHalf}:A${k}")
 Write-Host "Converting first batch of tickers to linked data type"
