@@ -70,6 +70,10 @@ $fullcsv | Export-Csv -Path ".\stockMetadata.csv"
 #Windows Roadblock #4: Remove "#TYPE System.Management.Automation.PSCustomObject" line from the top of exported CSV (???)
 Get-Content '.\stockMetadata.csv' | Select-Object -Skip 1 | Out-File ".\stockMetadataFinal.csv"
 
+#It's also worth noting that Excel outputs CSVs with utf-16 encoding. So when loading it into python, be sure to use
+# open('stockMetadataFinal.csv',encoding='utf16')
+#to avoid errors
+
 #Clean up
 Remove-Item ".\raw_stock.csv"
 Remove-Item ".\stockMetadata.csv"
