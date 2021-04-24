@@ -1,5 +1,6 @@
 #The purpose of this script is to Download a megalist of all active stock tickers from AlphaVantage, load that list into Excel, 
-#automate the utilization of excel's built-in stock data connections to get basic metadata about all > 10000 stocks, then save back to CSV to use in other scripts
+#automate the utilization of excel's built-in stock data connections to get basic metadata about all > 10000 stocks, then save back to CSV to use in other scripts;
+#With the intention of using this basic stock data to perform initial filtering on which stocks to request full datasets for
 
 #Windows Roadblock #1, Unless you disable the progress bar, it drags the download time of this ~50kb file up from a few seconds, to 5-10 minutes
 $ProgressPreference = 'SilentlyContinue'
