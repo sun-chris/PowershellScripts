@@ -7,7 +7,9 @@ $ProgressPreference = 'SilentlyContinue'
 
 #Download megalist of active stock tickers from alphavantage
 Write-Host "Downloading megalist of active stock tickers"
-Invoke-WebRequest -URI "https://www.alphavantage.co/query?function=LISTING_STATUS&apikey=demo" -OutFile '.\raw_stock.csv'
+$apikey = Get-Content ".\key.txt"
+$requestURL = "https://www.alphavantage.co/query?function=LISTING_STATUS&apikey=" + $apikey
+Invoke-WebRequest -URI $requestURL -OutFile '.\raw_stock.csv'
 
 #Get count of lines in CSV
 $k = (Get-Content ".\raw_stock.csv" | Measure-Object -Line).Lines
